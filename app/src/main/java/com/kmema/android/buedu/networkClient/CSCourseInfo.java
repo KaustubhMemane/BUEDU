@@ -3,7 +3,7 @@ package com.kmema.android.buedu.networkClient;
 import java.util.List;
 
 
-public class CourseInfo {
+public class CSCourseInfo {
     String information;
     String option_note;
     List<String> options;

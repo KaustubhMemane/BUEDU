@@ -12,9 +12,9 @@ import retrofit2.http.GET;
 public interface BUClient {
 
     @GET("/bu_computer_science_master")
-    Call<CourseInfo> getCSInfo();
+    Call<CSCourseInfo> getCSInfo();
 
     @GET("/bu_computer_science_master_courses")
-    Call<List<ComputerScienceCourses>> getCSCourseInfo();
+    Call<CSCourses> getCSCourseInfo();
 
 }

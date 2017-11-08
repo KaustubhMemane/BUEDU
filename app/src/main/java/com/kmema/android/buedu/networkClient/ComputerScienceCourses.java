@@ -1,7 +1,7 @@
 package com.kmema.android.buedu.networkClient;
 
 
-class ComputerScienceCourses {
+public class ComputerScienceCourses {
 
     String name;
     String section_name;
@@ -138,7 +138,6 @@ class ComputerScienceCourses {
     public void setSchedule_type(String schedule_type) {
         this.schedule_type = schedule_type;
     }
-
 }
 
 

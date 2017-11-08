@@ -1,0 +1,101 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kmema.android.buedu.InformationFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:background="@color/colorGray"
+                android:layout_marginBottom="4dp"
+                android:textStyle="bold"
+                android:id="@+id/tvInformation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="Loading!"
+                android:textSize="16sp"
+
+                android:padding="8dp"/>
+
+            <TextView
+                android:background="@color/colorGray"
+                android:layout_marginBottom="1dp"
+                android:padding="8dp"
+                android:id="@+id/tvOptionNote"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="Loading!"
+                android:textSize="16sp" />
+
+            <TextView
+                android:background="@color/colorGrayLight"
+                android:layout_marginBottom="4dp"
+                android:padding="8dp"
+                android:id="@+id/tvOptions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="Loading!"
+                android:textSize="16sp" />
+
+            <TextView
+                android:background="@color/colorGrayLight"
+                android:layout_marginBottom="4dp"
+                android:padding="8dp"
+                android:textStyle="italic"
+                android:id="@+id/tvNote"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="Loading!"
+                android:textSize="16sp" />
+
+            <TextView
+                android:textStyle="bold"
+                android:background="@color/colorGray"
+                android:layout_marginBottom="1dp"
+                android:padding="4dp"
+                android:id="@+id/tvCoreCourseNote"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="Loading!"
+                android:textSize="16sp" />
+
+            <TextView
+                android:background="@color/colorGrayLight"
+                android:layout_marginBottom="4dp"
+                android:padding="4dp"
+                android:id="@+id/tvCoreCoursesList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="Loading!"
+                android:textSize="16sp" />
+
+            <TextView
+                android:background="@color/colorGray"
+                android:layout_marginBottom="1dp"
+                android:padding="4dp"
+                android:id="@+id/tvCoursesNote"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="Loading!"
+                android:textSize="16sp" />
+
+            <TextView
+                android:background="@color/colorGrayLight"
+                android:layout_marginBottom="1dp"
+                android:padding="4dp"
+                android:id="@+id/tvCoursesList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="Loading!"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
