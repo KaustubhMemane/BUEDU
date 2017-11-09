@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/introColorThree"
+    android:background="@color/ic_launcher_background"
     android:gravity="center">
 
     <ImageView
@@ -12,13 +13,13 @@
         android:layout_centerVertical="true"
         android:src="@drawable/ic_action_list" />
     <TextView
+        android:textSize="24sp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView"
-        android:text="LIST OF SUBJECTS"
-        android:textColor="@color/colorPrimaryDark"
+        android:text="Find all courses on one click"
+        android:textColor="@color/colorGrayLight"
         android:textStyle="bold" />
-
 </RelativeLayout>

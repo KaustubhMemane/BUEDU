@@ -40,6 +40,8 @@ public class MyCourseRecyclerViewAdapter extends RecyclerView.Adapter<MyCourseRe
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+
+        // TODO: 11/9/2017 remove all setText and add seperate text box and check data before displaying
         holder.mName.setText(R.string.name);
         holder.mName.append(mValues.get(position).getName());
 

@@ -11,6 +11,6 @@
     <color name="introColorThree">#ffa246</color>
 
 
-    <color name="dotLight">#ff8381</color>
-    <color name="dotDark">#980000</color>
+    <color name="dotLight">#d0d0d0</color>
+    <color name="dotDark">#000000</color>
 </resources>

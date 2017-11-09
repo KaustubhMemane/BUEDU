@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private FragmentManager mFragmentManager = getFragmentManager();
     BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -30,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.navSuggestion:
+                    SuggestionFragment suggestionFragment = new SuggestionFragment();
+                    mFragmentManager.beginTransaction().replace(R.id.containerLayout,suggestionFragment, suggestionFragment.getTag()).commit();
                     Toast.makeText(MainActivity.this, "Suggestion", Toast.LENGTH_SHORT).show();
                     return true;
             }

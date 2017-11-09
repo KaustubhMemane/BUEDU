@@ -10,14 +10,15 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/ic_action_list" />
+        android:src="@drawable/ic_action_info" />
     <TextView
+        android:textSize="24sp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView"
-        android:text="LIST OF SUBJECTS"
+        android:text="@string/learn_more_cs"
         android:textColor="@color/colorGrayLight"
         android:textStyle="bold" />
 

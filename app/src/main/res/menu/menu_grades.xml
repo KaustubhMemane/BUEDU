@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/grade_a"
+        android:id="@+id/gradeA"
+        android:icon="@drawable/ic_a"/>
+    <item android:title="@string/grade_b"
+        android:id="@+id/gradeB"
+        android:icon="@drawable/ic_b"/>
+    <item android:title="@string/grade_c"
+        android:id="@+id/gradeC"
+        android:icon="@drawable/ic_c" />
+</menu>

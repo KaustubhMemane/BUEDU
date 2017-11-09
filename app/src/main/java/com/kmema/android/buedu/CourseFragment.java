@@ -21,6 +21,7 @@ import com.kmema.android.buedu.networkClient.ComputerScienceCourses;
 
 import java.util.List;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -114,8 +115,15 @@ public class CourseFragment extends Fragment {
     }
 
     private void requestCSInfo(final View view) {
+        int cacheSize  = 10 * 1024;
+        okhttp3.Cache cache = new okhttp3.Cache(getContext().getCacheDir(),cacheSize);
+
+        OkHttpClient.Builder okHttpClient = new OkHttpClient().newBuilder();
+        OkHttpClient okHttpClient1 = okHttpClient.cache(cache).build();
+
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(baseURL)
+                .client(okHttpClient1)
                 .addConverterFactory(GsonConverterFactory
                         .create());
 

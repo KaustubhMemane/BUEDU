@@ -19,4 +19,12 @@
     <string name="DateRange">Date Range: </string>
     <string name="ScheduleType">Schedule Type: </string>
     <string name="opened">Opened</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="list_of_courses">LIST OF COURSES</string>
+    <string name="grade_a">Grade A</string>
+    <string name="grade_b">Grade B</string>
+    <string name="grade_c">Grade C</string>
+    <string name="welcome_buedu">BUEDU</string>
+    <string name="learn_more_cs">Learn more about Computer Science</string>
 </resources>

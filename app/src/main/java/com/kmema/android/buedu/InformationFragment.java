@@ -1,8 +1,10 @@
 package com.kmema.android.buedu;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.constraint.solver.Cache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -75,6 +78,12 @@ public class InformationFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
         requestCSInfo();
     }
 
@@ -85,8 +94,15 @@ public class InformationFragment extends Fragment {
     }
 
     private void requestCSInfo() {
+        int cacheSize  = 10 * 1024;
+        okhttp3.Cache cache = new okhttp3.Cache(getContext().getCacheDir(),cacheSize);
+
+        OkHttpClient.Builder okHttpClient = new OkHttpClient().newBuilder();
+        OkHttpClient okHttpClient1 = okHttpClient.cache(cache).build();
+
         Retrofit.Builder  builder = new Retrofit.Builder()
                 .baseUrl(baseURL)
+                .client(okHttpClient1)
                 .addConverterFactory(GsonConverterFactory
                         .create());
 
@@ -111,6 +127,11 @@ public class InformationFragment extends Fragment {
     }
 
     private void displayData(Response<CSCourseInfo> response) {
+        if (response == null || textViewInformation == null)
+        {
+            return;
+        }
+
         textViewInformation.setText(response.body().getInformation());
         textViewOptionNote.setText(response.body().getOption_note());
 

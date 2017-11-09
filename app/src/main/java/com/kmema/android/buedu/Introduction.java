@@ -17,7 +17,7 @@ public class Introduction extends AppCompatActivity implements View.OnClickListe
 
 
     private ViewPager mPager;
-    private int[] layouts = {R.layout.intro_one,R.layout.intro_two, R.layout.intro_three};
+    private int[] layouts = {R.layout.intro_one,R.layout.intro_two, R.layout.intro_three,R.layout.intro_four};
     private MyPagerAdapter myPagerAdapter;
     private LinearLayout dotsLayout;
     private ImageView[] dots;
