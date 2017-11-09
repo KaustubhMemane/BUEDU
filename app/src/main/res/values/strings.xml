@@ -18,4 +18,5 @@
     <string name="Days">Days: </string>
     <string name="DateRange">Date Range: </string>
     <string name="ScheduleType">Schedule Type: </string>
+    <string name="opened">Opened</string>
 </resources>

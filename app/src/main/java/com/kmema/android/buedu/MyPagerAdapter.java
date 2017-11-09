@@ -6,9 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by kmema on 11/8/2017.
- */
 
 public class MyPagerAdapter extends PagerAdapter {
 

@@ -4,10 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kmema.android.buedu.Introduction">
+    tools:context="com.kmema.android.buedu.Introduction"
+    android:background="@color/introColorOne">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <View
+        android:background="@color/dotDark"
+        android:layout_above="@+id/dotLayout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="15dp"
+        android:alpha=".5" />
+    <LinearLayout
+        android:layout_marginBottom="55sp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:id="@+id/dotLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSkip"
+        android:text="Skip"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@null"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/colorGrayLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/colorGrayLight"/>
 </RelativeLayout>

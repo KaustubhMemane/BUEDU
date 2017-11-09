@@ -48,5 +48,4 @@ public class MainActivity extends AppCompatActivity {
         InformationFragment informationFragment = new InformationFragment();
         mFragmentManager.beginTransaction().replace(R.id.containerLayout, informationFragment, informationFragment.getTag()).commit();
     }
-
 }
