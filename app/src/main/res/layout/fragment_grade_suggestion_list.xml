@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list"
-    android:name="com.kmema.android.buedu.CourseFragment"
+    android:name="com.kmema.android.buedu.GradeFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context="com.kmema.android.buedu.Courses.CourseFragment"
-    tools:listitem="@layout/fragment_course" />
+    tools:context="com.kmema.android.buedu.Suggestion.GradeFragment"
+    tools:listitem="@layout/fragment_grade" />

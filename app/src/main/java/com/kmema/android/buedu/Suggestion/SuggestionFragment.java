@@ -1,4 +1,4 @@
-package com.kmema.android.buedu;
+package com.kmema.android.buedu.Suggestion;
 
 import android.content.Context;
 import android.net.Uri;
@@ -7,6 +7,8 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.kmema.android.buedu.R;
 
 
 /**

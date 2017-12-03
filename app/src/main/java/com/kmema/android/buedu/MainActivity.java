@@ -8,7 +8,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.kmema.android.buedu.Courses.CourseFragment;
+import com.kmema.android.buedu.Information.InformationFragment;
+import com.kmema.android.buedu.Suggestion.SuggestionFragment;
+
 public class MainActivity extends AppCompatActivity {
+
 
     private FragmentManager mFragmentManager = getFragmentManager();
     BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -34,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Suggestion", Toast.LENGTH_SHORT).show();
                     return true;
             }
-
             return false;
         }
     };

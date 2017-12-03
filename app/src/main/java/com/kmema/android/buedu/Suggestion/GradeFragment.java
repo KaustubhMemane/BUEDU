@@ -1,4 +1,4 @@
-package com.kmema.android.buedu;
+package com.kmema.android.buedu.Suggestion;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,15 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.kmema.android.buedu.dummy.DummyContent;
-import com.kmema.android.buedu.dummy.DummyContent.DummyItem;
+import com.kmema.android.buedu.MyItemRecyclerViewAdapter;
+import com.kmema.android.buedu.R;
 import com.kmema.android.buedu.networkClient.BUClient;
-import com.kmema.android.buedu.networkClient.CSCourseInfo;
-import com.kmema.android.buedu.networkClient.CSCourses;
-import com.kmema.android.buedu.networkClient.ComputerScienceCourses;
+import com.kmema.android.buedu.DataModel.CoursesGradeADataModel;
+import com.kmema.android.buedu.DataModel.GradeA;
 
 import java.util.List;
 
+import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,9 +34,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class CourseFragment extends Fragment {
+public class GradeFragment extends Fragment {
 
-    public static final String baseURL = "http://kaustubhmemane.com";
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
@@ -47,13 +46,13 @@ public class CourseFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public CourseFragment() {
+    public GradeFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static CourseFragment newInstance(int columnCount) {
-        CourseFragment fragment = new CourseFragment();
+    public static GradeFragment newInstance(int columnCount) {
+        GradeFragment fragment = new GradeFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -72,12 +71,24 @@ public class CourseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_course_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_grade_suggestion_list, container, false);
 
-        requestCSInfo(view);
-        // Set the adapter
+        requestGradeSuggetion(view);
+/*        // Set the adapter
+        if (view instanceof RecyclerView) {
+            Context context = view.getContext();
+            RecyclerView recyclerView = (RecyclerView) view;
+            if (mColumnCount <= 1) {
+                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            } else {
+                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+            }
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+        }*/
         return view;
     }
+
+
 
 
     @Override
@@ -111,46 +122,42 @@ public class CourseFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+
     }
+    private static final String baseURL = "http://kaustubhmemane.com";
+    private void requestGradeSuggetion(final View view) {
+        int cacheSize = 10 * 1024;
 
-    private void requestCSInfo(final View view) {
-        int cacheSize  = 10 * 1024;
-        okhttp3.Cache cache = new okhttp3.Cache(getContext().getCacheDir(),cacheSize);
+        Cache cache = new Cache(getContext().getCacheDir(),cacheSize);
 
-        OkHttpClient.Builder okHttpClient = new OkHttpClient().newBuilder();
+        OkHttpClient.Builder  okHttpClient =  new OkHttpClient().newBuilder();
         OkHttpClient okHttpClient1 = okHttpClient.cache(cache).build();
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(baseURL)
                 .client(okHttpClient1)
-                .addConverterFactory(GsonConverterFactory
-                        .create());
-
+                .addConverterFactory(GsonConverterFactory.create());
         Retrofit mRetrofit = builder.build();
 
         BUClient buClient = mRetrofit.create(BUClient.class);
-        Call<CSCourses> call = buClient.getCSCourseInfo();
-        call.enqueue(new Callback<CSCourses>() {
+        Call<GradeA> call = buClient.getCSCourseGradeA();
+        call.enqueue(new Callback<GradeA>() {
             @Override
-            public void onResponse(Call<CSCourses> call, Response<CSCourses> response) {
-                String s = response.body().getListOfCourses().get(9).getDate_range();
-//                Toast.makeText(getContext(),s, Toast.LENGTH_SHORT).show();
-                attachListToRecycler(view, response.body().getListOfCourses());
+            public void onResponse(Call<GradeA> call, Response<GradeA> response) {
+                attachSuggestionsToRecycler(view, response.body().getCoursesGradeADataModels());
             }
 
             @Override
-            public void onFailure(Call<CSCourses> call, Throwable t) {
+            public void onFailure(Call<GradeA> call, Throwable t) {
                 Toast.makeText(getContext(), "ERROR", Toast.LENGTH_SHORT).show();
-                Log.e("Course ERROR",t.getLocalizedMessage());
+                Log.e("Suggestion ERROR",t.getLocalizedMessage());
             }
         });
     }
 
-
-    private void attachListToRecycler(View view,List<ComputerScienceCourses> csCourses)
-    {
-        if (view instanceof RecyclerView) {
+    private void attachSuggestionsToRecycler(View view, List<CoursesGradeADataModel> coursesGradeADataModels) {
+        if(view instanceof RecyclerView)
+        {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
 
@@ -159,7 +166,7 @@ public class CourseFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyCourseRecyclerViewAdapter(csCourses, mListener));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(coursesGradeADataModels, mListener));
         }
     }
 }

@@ -1,17 +1,17 @@
-package com.kmema.android.buedu.networkClient;
+package com.kmema.android.buedu.DataModel;
 
 import java.util.List;
 
 
-public class CSCourseInfo {
-    String information;
-    String option_note;
-    List<String> options;
-    String note;
-    String core_courses_note;
-    List<String> core_courses;
-    String courses_note;
-    List<String> courses;
+public class CSCourseInfoDataModel {
+    private String information;
+    private String option_note;
+    private List<String> options;
+    private String note;
+    private String core_courses_note;
+    private List<String> core_courses;
+    private String courses_note;
+    private List<String> courses;
     public String getInformation() {
         return information;
     }

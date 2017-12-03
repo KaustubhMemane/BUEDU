@@ -1,5 +1,7 @@
 package com.kmema.android.buedu.networkClient;
 
+import com.kmema.android.buedu.DataModel.ComputerScienceCoursesDataModel;
+
 import java.util.List;
 
 /**
@@ -8,13 +10,13 @@ import java.util.List;
 
 public class CSCourses {
 
-    List<ComputerScienceCourses> courses;
+    List<ComputerScienceCoursesDataModel> courses;
 
-    public List<ComputerScienceCourses> getListOfCourses() {
+    public List<ComputerScienceCoursesDataModel> getListOfCourses() {
         return courses;
     }
 
-    public void setListOfCourses(List<ComputerScienceCourses> courses) {
+    public void setListOfCourses(List<ComputerScienceCoursesDataModel> courses) {
         this.courses = courses;
     }
 

@@ -1,23 +1,25 @@
-package com.kmema.android.buedu.networkClient;
+package com.kmema.android.buedu.DataModel;
 
 
-public class ComputerScienceCourses {
+import java.io.Serializable;
 
-    String name;
-    String section_name;
-    String description;
-    String associated_Term;
-    String registration_dates;
-    String levels;
-    String note;
-    String credit;
-    String type;
-    String professor;
-    String time;
-    String days;
-    String where;
-    String date_range;
-    String schedule_type;
+public class ComputerScienceCoursesDataModel implements Serializable {
+
+    private String name;
+    private String section_name;
+    private String description;
+    private String associated_Term;
+    private String registration_dates;
+    private String levels;
+    private String note;
+    private String credit;
+    private String type;
+    private String professor;
+    private String time;
+    private String days;
+    private String where;
+    private String date_range;
+    private String schedule_type;
 
     public String getName() {
         return name;

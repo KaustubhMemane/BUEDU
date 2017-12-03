@@ -1,18 +1,18 @@
-package com.kmema.android.buedu;
+package com.kmema.android.buedu.Information;
 
 
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.constraint.solver.Cache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kmema.android.buedu.R;
 import com.kmema.android.buedu.networkClient.BUClient;
-import com.kmema.android.buedu.networkClient.CSCourseInfo;
+import com.kmema.android.buedu.DataModel.CSCourseInfoDataModel;
 
 import java.util.List;
 
@@ -110,23 +110,23 @@ public class InformationFragment extends Fragment {
         Retrofit mRetrofit = builder.build();
 
         BUClient buClient = mRetrofit.create(BUClient.class);
-        Call<CSCourseInfo> call = buClient.getCSInfo();
-        call.enqueue(new Callback<CSCourseInfo>() {
+        Call<CSCourseInfoDataModel> call = buClient.getCSInfo();
+        call.enqueue(new Callback<CSCourseInfoDataModel>() {
             @Override
-            public void onResponse(Call<CSCourseInfo> call, Response<CSCourseInfo> response) {
+            public void onResponse(Call<CSCourseInfoDataModel> call, Response<CSCourseInfoDataModel> response) {
                 String s = response.body().getCore_courses_note();
 //                Toast.makeText(getContext(),s, Toast.LENGTH_LONG).show();
                 displayData(response);
             }
 
             @Override
-            public void onFailure(Call<CSCourseInfo> call, Throwable t) {
+            public void onFailure(Call<CSCourseInfoDataModel> call, Throwable t) {
                 Toast.makeText(getContext(), "ERROR", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void displayData(Response<CSCourseInfo> response) {
+    private void displayData(Response<CSCourseInfoDataModel> response) {
         if (response == null || textViewInformation == null)
         {
             return;
