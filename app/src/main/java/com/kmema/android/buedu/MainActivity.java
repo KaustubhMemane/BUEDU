@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navListCourses:
                     CourseFragment courseFragment = new CourseFragment();
                     mFragmentManager.beginTransaction().replace(R.id.containerLayout, courseFragment, courseFragment.getTag()).commit();
-                    Toast.makeText(MainActivity.this, "List", Toast.LENGTH_SHORT).show();
                     return true;
 
                 case R.id.navSuggestion:
@@ -48,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.navBottom);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
         InformationFragment informationFragment = new InformationFragment();
         mFragmentManager.beginTransaction().replace(R.id.containerLayout, informationFragment, informationFragment.getTag()).commit();
     }
