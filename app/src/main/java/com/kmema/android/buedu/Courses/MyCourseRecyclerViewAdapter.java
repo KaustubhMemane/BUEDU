@@ -50,8 +50,8 @@ public class MyCourseRecyclerViewAdapter extends RecyclerView.Adapter<MyCourseRe
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         holder.setIsRecyclable(false);
-        holder.mName.append(mValues.get(position).getName());
-        holder.mSecotionName.append(mValues.get(position).getSection_name());
+        holder.mName.setText(mValues.get(position).getName());
+        holder.mSecotionName.setText(mValues.get(position).getSection_name());
         holder.mSecotionName.setSelected(true);
         holder.mSecotionName.setMaxLines(1);
         holder.mTime.append(mValues.get(position).getTime());

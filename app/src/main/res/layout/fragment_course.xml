@@ -57,6 +57,7 @@
                 android:textStyle="bold" />
 
             <TextView
+
                 android:textAppearance="?attr/textAppearanceListItem"
                 android:scrollHorizontally="true"
                 android:focusableInTouchMode="true"

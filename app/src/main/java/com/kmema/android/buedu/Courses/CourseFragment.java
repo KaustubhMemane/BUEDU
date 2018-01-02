@@ -1,6 +1,5 @@
 package com.kmema.android.buedu.Courses;
 
-
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
